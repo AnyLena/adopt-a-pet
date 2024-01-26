@@ -21,8 +21,32 @@ app.get("/animals/:pet_type", (req, res) => {
   let { pet_type } = req.params;
 
   if (pets[pet_type]) {
-    const list = pets[pet_type].map((pet) => `<li>${pet.name}</li>`);
-    res.send(`<h1>List of ${pet_type}</h1><ul>${list.join("")}</ul>`);
+    const list = pets[pet_type].map((pet) => `<li><a href="/animals/${pet_type}/${pet.id}">${pet.name}</a></li>`);
+    res.send(
+        `<h1>List of ${pet_type}</h1>
+        <ul>${list.join("")}</ul>`);
+  } else {
+    res.status(404).send("Pet type not found");
+  }
+});
+
+app.get("/animals/:pet_type/:pet_id", (req, res) => {
+  let { pet_type } = req.params;
+  let { pet_id } = req.params;
+
+  if (pets[pet_type]) {
+    const pet = pets[pet_type].find((pet) => pet.id == pet_id);
+
+    res.send(
+      `<h1>${pet.name}</h1>
+        <img src=${pet.url}/>
+        <p>${pet.description}</p>
+        <ul> 
+          <li>Breed: ${pet.breed}</li>
+          <li>Age: ${pet.age}</li>
+        </ul>  
+        `
+    );
   } else {
     res.status(404).send("Pet type not found");
   }

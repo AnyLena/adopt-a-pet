@@ -6,6 +6,7 @@ export const pets = {
         breed: 'Dalmatian',
         description: 'Spot is an energetic puppy who seeks fun and adventure!',
         url: 'https://placedog.net/500/280',
+        id: 1
       },
       {
         name: 'Shadow',
@@ -14,6 +15,7 @@ export const pets = {
         description:
           'Eager and curious, Shadow enjoys company and can always be found tagging along at your heels!',
         url: 'https://placedog.net/540/205',
+        id: 2
       },
     ],
     cats: [
@@ -24,6 +26,7 @@ export const pets = {
         description:
           'Snowflake is a playful kitten who loves roaming the house and exploring.',
         url: 'http://placekitten.com/500/500',
+        id: 3
       },
     ],
     rabbits: [
@@ -34,6 +37,7 @@ export const pets = {
         description:
           'Easter is a sweet, gentle rabbit who likes spending most of the day sleeping.',
         url: 'https://loremflickr.com/320/240/rabbit?lock=7',
+        id: 4
       },
     ],
   };
